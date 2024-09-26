@@ -36,15 +36,34 @@ namespace autoSale
             } while (dt.Read());
             con.Connection.Close();
         }
+        public static void feladat2() 
+        {
+            
+            Console.WriteLine("Adja meg a márkáját:");
+            string marka_be = Console.ReadLine();
+            Console.WriteLine("Adja meg a tipusást:");
+            string tipus_be=Console.ReadLine();
+            Console.WriteLine("adja meg a motorszámát:");
+            string lic_be=Console.ReadLine();
+            Console.WriteLine("Adja meg a gyártási évét:");
+            string ev_be=Console.ReadLine();
+            string sql = $"INSERT INTO `cars`(`Brand`, `Type`, `Licence`, `ev`) VALUES ('{marka_be}','{tipus_be}','{lic_be}',{ev_be})";
+            con.Connection.Open();
+
+            MySqlCommand cmd = new MySqlCommand(sql, con.Connection);
+            cmd.ExecuteNonQuery();
+
+            con.Connection.Close();
+        }
         static void Main(string[] args)
         {
             feladat1();
             
             foreach (var item in carList)
             {
-                Console.WriteLine(item.id+"\t"+item.Brand+"\t"+item.Type+"\t"+item.Licence+"\t"+item.year+"\n");
+                Console.WriteLine(item.id+"\t"+item.Brand+"\t"+item.Type+"\n");
             }
-           
+           feladat2();
             Console.ReadLine();
         }
     }
