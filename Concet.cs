@@ -18,10 +18,10 @@ namespace autoSale
 
         public Concet() 
         { 
-            Host = "127.0.0.1";
+            Host = "localhost";
             Database = "auto";
             User = "root";
-            Password = "0";
+            Password = "";
             ConnectionString = "SERVER=" + Host + ";DATABASE=" + Database + ";UID=" + User + ";PASSWORD=" + Password + ";SslMode=None";
             Connection = new MySqlConnection(ConnectionString);
         }

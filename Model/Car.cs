@@ -15,7 +15,7 @@ namespace autoSale.Model
         public int year;
         public Car(string s)
         {
-            string[]darab=s.Split(',');
+            string[]darab=s.Split(';');
             this.id = int.Parse(darab[0]);
             this.Brand = darab[1];
             this.Type = darab[2];
